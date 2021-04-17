@@ -1,0 +1,19 @@
+schema:
+  format:
+    openapi: "3.0.0"
+  environment_input_type: "RestaurantEnvironmentType"
+  types:
+    RestaurantEnvironmentType:
+      type: object
+      description: "Input properties for my environment"
+      properties:
+        continent:
+          type: string
+          description: "Continent where restaurant services will be deployed"
+          default: "north america"
+        stage:
+          type: string
+          description: "stage (alpha/beta/gamma/prod)"
+      required:
+        - continent
+        - stage

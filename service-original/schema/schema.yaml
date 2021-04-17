@@ -1,0 +1,30 @@
+schema:
+  format:
+    openapi: "3.0.0"
+  pipeline_input_type: "RestaurantPipelineInputType"
+  service_input_type: "RestaurantServiceInputType"
+
+  types:
+    RestaurantPipelineInputType:
+      type: object
+      description: "Pipeline input properties"
+      required:
+        - enable_pigeon_deployments
+      properties:
+        enable_pigeon_deployments:
+          type: string
+          description: "Can be true or false. If set to true, deployments will be carried out via carrier pigeons"
+
+    RestaurantServiceInputType:
+      type: object
+      description: "Restaurant input properties"
+      required:
+        - restaurant_name
+        - menu_s3_bucket
+      properties:
+        restaurant_name:
+          type: string
+          description: "Name of the restaurant"
+        menu_s3_bucket:
+          type: string
+          description: "Name of the bucket containing this restauraunt's menu data"

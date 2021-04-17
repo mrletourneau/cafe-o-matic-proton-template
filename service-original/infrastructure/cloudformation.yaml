@@ -1,0 +1,23 @@
+Resources:
+  StoreServiceInstanceInputValues:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "{{service_name}} {{service_instance_name}} {{ service_instance.restaurant_name }} {{ service_instance.menu_s3_bucket }}"
+  StoreEnvironmentOutputValues:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "Individual environment outputs: {{ environment.Continent }} {{ environment.Stage }}"
+
+Outputs:
+  RestaurantName:
+    Value: "{{ service_instance.restaurant_name }}"
+  MenuBucket:
+    Value: "{{ service_instance.menu_s3_bucket }}"
+
+  # Outputs defined in all simple-env-template sample templates
+  Continent:
+    Value: "{{ environment.Continent }}"
+  Stage:
+    Value: "{{ environment.Stage }}"
